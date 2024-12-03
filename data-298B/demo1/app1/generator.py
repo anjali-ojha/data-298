@@ -4,13 +4,13 @@ import streamlit_shadcn_ui as ui
 
 
 def app(clear=True):
-
+    print(f"\n\n\n\nSession = {st.session_state}")
     with st.sidebar:
         # st.subheader('Start Chat using Streamlit')
-        video_height = st.sidebar.slider("Video Height", 300, 800, 400, 50, key="video_height")
-        video_width = st.sidebar.slider("Video Height", 300, 800, 400, 50, key="video_width")
-        video_length_s = st.sidebar.slider("Video Length in Sec", 1, 30, 5, 1, key="video_length_s")
-        print(f"{video_height = }, {video_width = }, {video_length_s = }")
+        # video_height = st.sidebar.slider("Video Height", 300, 800, 400, 50, key="video_height")
+        # video_width = st.sidebar.slider("Video Height", 300, 800, 400, 50, key="video_width")
+        # video_length_s = st.sidebar.slider("Video Length in Sec", 1, 30, 5, 1, key="video_length_s")
+        # print(f"{video_height = }, {video_width = }, {video_length_s = }")
         st.divider()
         # chat_name = st.selectbox("Chat Session:", ["default", "chat1"], key="chat_name", on_change=on_chat_change)
         # chat_box.use_chat_name(chat_name)
@@ -25,16 +25,23 @@ def app(clear=True):
         btns = st.container()
 
     if "textarea1" not in st.session_state:
-        textarea_value = ui.textarea(default_value="Input Prompt ..", placeholder="Enter longer text", key="textarea1")
-    else:
-        textarea_value = ui.textarea(default_value=st.session_state["textarea1"], placeholder="Enter longer text", key="textarea1")
+        st.session_state["textarea1"] = "Input Prompt ..."
+    textarea_value = ui.textarea(default_value="Input Prompt ..", placeholder="Enter longer text", key="textarea1")
+    # if "textarea1" not in st.session_state:
+    #     textarea_value = ui.textarea(default_value="Input Prompt ..", placeholder="Enter longer text", key="textarea1")
+    # else:
+    #     textarea_value = ui.textarea(default_value=st.session_state["textarea1"], placeholder=st.session_state["textarea1"], key="textarea1")
 
     # st.write("Textarea Value:", textarea_value)
-    if 'styled_btn_tailwind' not in st.session_state:
-        gen_button = ui.button(text="Generate Video", key="styled_btn_tailwind", className="bg-orange-500 text-white")
-    else:
-        gen_button = st.session_state['styled_btn_tailwind']
-        gen_button = True
+
+    if "styled_btn_tailwind" in st.session_state:
+        print("button is present")
+        st.session_state["styled_btn_tailwind"]["value"] = True
+
+    gen_button = ui.button(text="Generate Video", key="styled_btn_tailwind", className="bg-orange-500 text-white")
+    gen_button = st.session_state["styled_btn_tailwind"]["value"]
+    print(gen_button)
+
 
     def slider_change(s):
         print(s)
@@ -50,7 +57,7 @@ def app(clear=True):
         # config_container = st.container(border=True)
 
         def test():
-            st.text("test func called")
+            print("test func called")
 
         with st.form("my_form", clear_on_submit=False,) :
 
@@ -72,13 +79,15 @@ def app(clear=True):
         #     height = ui.slider(default_value=[20], min_value=0, max_value=100, step=2, label="Video Height", key="v_height")
 
     if gen_button:
-
+        st.text("Video Parameters updated.")
         ui.badges(badge_list=[(f"Video Height = {st.session_state['v_height']}", "default"),
                               (f"Video Width = {st.session_state['v_width']}", "secondary"),
                               # ("outline", "outline"),
                               # ("Hello", "destructive"),
                               (f"Video Length {st.session_state['v_length_s']}", "destructive")
                               ], class_name="flex gap-2", key="badges1")
+
+
 
 def app2(clear=True):
     status = False if 'video_height' in st.session_state else True
