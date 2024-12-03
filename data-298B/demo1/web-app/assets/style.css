@@ -1,0 +1,137 @@
+/* Move block container higher */
+div.block-container.css-z5fcl4 {
+  padding-top: 0 rem;
+  margin-top: -15m;
+}
+
+/* Adjustments for the logo image*/
+
+img {
+  display: block;
+  margin-top: 2em;
+}
+
+/* remove header */
+header.css-147i1ru.e8zbici2 {
+  height: 0rem
+}
+
+/* Centering text in each gray box */
+div.css-1ht1j8u.e16fv1kl0 {
+  text-align: center;
+}
+
+/* Third line of Row */
+/*div.css-wnm74r.e16fv1kl3 {
+  margin-left: 30%;
+  margin-right: 20%;
+}
+
+/* Row 1 */
+div.css-j5r0tf.e1tzin5v1 {
+    background-color: rgb(189, 195, 199);
+    border: 2px solid rgba(200, 168, 211, 0.6);
+    padding: 0.5% 0.5% 0.5% 0.5%;
+    border-radius: 25px;
+}
+
+/* Row 2 */
+div.css-1r6slb0.e1tzin5v1 {
+    background-color: rgb(189, 195, 199);
+    border: 2px solid rgba(200, 168, 211, 0.6);
+    padding: 0.5% 0.5% 0.5% 0.5%;
+    border-radius: 25px;
+}
+
+/* Row 3 */
+div.css-1b2d4l5.e1tzin5v1 {
+    background-color: rgb(189, 195, 199);
+    border: 2px solid rgba(200, 168, 211, 0.6);
+    padding: 0.5% 0.5% 0.5% 0.5%;
+    border-radius: 25px;
+}
+
+/* Add a border to the specified <div> element */
+div.css-fty8zw.e1tzin5v1 {
+  background-color: rgb(27, 98, 145);
+  border: 2px solid rgba(200, 168, 211, 0.6);
+  padding: 0.5% 0.5% 0.5% 0.5%;
+  border-radius: 25px;
+}
+
+/* Hide hamburger menu and footer */
+div.css-r698ls.e8zbici2 {
+  display: none;
+}
+
+footer.css-ipbk5a.egzxvld4 {
+  display: none;
+}
+
+footer.css-12gp8ed.eknhn3m4 {
+  display: none;
+}
+
+div.vg-tooltip-element {
+  display: none;
+}
+
+footer {
+    visibility: hidden;
+}
+
+
+[data-testid="stAppViewContainer"] {
+    border: 2px solid rgba(200, 168, 211, 0.6);
+    background-color: #e5e5f7;
+    opacity: 0.1;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 10px ), repeating-linear-gradient( #444cf755, #444cf7 );
+}
+
+[data-testid="stHeader"] {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+[data-testid="stToolbar"] {
+    background-color: #000000;
+    color: white;
+    right: 2em;
+}
+
+[data-testid="stSidebar"] {
+    backGround-image: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+}
+
+section.st-emotion-cache-1dzcuzv.eczjsme11 {
+    background-color: #e5e5f7;
+    opacity: 0.9;
+    backGround-image: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+    /*background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px), repeating-linear-gradient(#444cf755, #444cf7);*/
+}
+
+
+.appview-container.st-emotion-cache-1yiq2ps.ea3mdgi9 {
+    background-color: #e5e5f7;
+    opacity: 1;
+    /*backGround-image: url('https://cdn.prod.website-files.com/624ac40503a527cf47af4192/65a8dfe818e8cbe0273df372_ai-gif-generator-6.gif');*/
+    background-size: cover;
+    /*backGround-image: url('https://images.squarespace-cdn.com/content/v1/5c528d9e96d455e9608d4c63/1586373696032-8J0KLWIL3RTR867WDE5T/procreatecomission.gif?format=1500w');*/
+    /*backGround-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5fc09b4d-b6f5-4047-8420-49722602712a/ddz1y9a-bc94b613-5d88-472c-a85f-0cdabd382b6e.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzVmYzA5YjRkLWI2ZjUtNDA0Ny04NDIwLTQ5NzIyNjAyNzEyYVwvZGR6MXk5YS1iYzk0YjYxMy01ZDg4LTQ3MmMtYTg1Zi0wY2RhYmQzODJiNmUuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ZMX4B_SwRyGz6OBItMr_cIiId827o_eqYEyTNFI_hoo');*/
+    /*background-image: url('https://www.transparenttextures.com/patterns/axiom-pattern.png');*/
+    background-image: url('https://designtemplate.tech/Soft%20Pastel%20Colors%20Background%20for%20Soothing%20Video%20Projects.webp');
+    /*background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px), repeating-linear-gradient(#444cf755, #444cf7);*/
+}
+
+
+
+
+.st-emotion-cache-r421ms {
+    border: 1px solid rgba(49, 51, 63, 0.2);
+    border-radius: 0.5rem;
+    padding: calc(1em - 1px);
+    /* set the back ground opacity */
+    background-color: rgba(4, 0, 0, 0.2);
+    /** set the frosted look */
+    backdrop-filter: blur(15px);
+}

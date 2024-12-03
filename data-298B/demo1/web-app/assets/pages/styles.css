@@ -1,0 +1,143 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    background: linear-gradient(135deg, #141E30 0%, #243B55 100%);
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.app-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00D4FF;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cta-button {
+    background-color: #00D4FF;
+    color: #141E30;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #00A3C4;
+}
+
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh;
+    padding: 40px 20px;
+    color: #ffffff;
+}
+
+.text-content {
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+.text-content h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.text-content p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+.gallery-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.video-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #243B55;
+}
+
+.video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover video {
+    transform: scale(1.1);
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #141E30;
+    color: #ffffff;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer .social-links a {
+    color: #00D4FF;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer .social-links a:hover {
+    color: #00A3C4;
+}
