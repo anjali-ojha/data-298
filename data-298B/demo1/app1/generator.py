@@ -1,6 +1,11 @@
 import streamlit as st
 from streamlit_chatbox import FakeLLM, ChatBox, Markdown
 import streamlit_shadcn_ui as ui
+from tornado.gen import sleep
+
+from config import assets_path
+
+global generate
 
 
 def app(clear=True):
@@ -39,6 +44,7 @@ def app(clear=True):
         st.session_state["styled_btn_tailwind"]["value"] = True
 
     gen_button = ui.button(text="Generate Video", key="styled_btn_tailwind", className="bg-orange-500 text-white")
+    # gen_button = st.button("Generate Video", key="styled_btn_tailwind")
     gen_button = st.session_state["styled_btn_tailwind"]["value"]
     print(gen_button)
 
@@ -58,6 +64,7 @@ def app(clear=True):
 
         def test():
             print("test func called")
+            st.session_state["generate"] = True
 
         with st.form("my_form", clear_on_submit=False,) :
 
@@ -78,7 +85,7 @@ def app(clear=True):
         # with col1:
         #     height = ui.slider(default_value=[20], min_value=0, max_value=100, step=2, label="Video Height", key="v_height")
 
-    if gen_button:
+    if "generate" in st.session_state and st.session_state["generate"]:
         st.text("Video Parameters updated.")
         ui.badges(badge_list=[(f"Video Height = {st.session_state['v_height']}", "default"),
                               (f"Video Width = {st.session_state['v_width']}", "secondary"),
@@ -87,7 +94,21 @@ def app(clear=True):
                               (f"Video Length {st.session_state['v_length_s']}", "destructive")
                               ], class_name="flex gap-2", key="badges1")
 
+        video_container = st.container(border=True)
+        col1, col2 = video_container.columns([1,2])
+        col1.caption(f"Generating the video {textarea_value}")
+        # st.image(f'{assets_path}/images/logo_new.png')
+        import time
+        progress_bar = col2.progress(0)
+        # Simulate a long-running task
+        for i in range(1, 101, 2):
+            # Update the progress bar
+            progress_bar.progress(i)
+            # Simulate a delay (for example, some data processing)
+            time.sleep(0.1)
 
+        col2.video(f"{assets_path}/sample/video3.mp4")
+        # st.caption
 
 def app2(clear=True):
     status = False if 'video_height' in st.session_state else True
