@@ -10,6 +10,7 @@ def app():
 #
 #     st.write(""" Text-to-video generation is a rapidly advancing AI field that transforms written prompts into dynamic, coherent videos by merging natural language processing (NLP), computer vision, and deep learning. This technology has far-reaching applications in marketing, film, education, and virtual reality, prompting active development of models that generate high-quality, relevant, and cohesive videos from simple text inputs. At the core of text-to-video generation are multimodal neural networks, which process both linguistic and visual information using architectures like Generative Adversarial Networks (GANs), Variational Autoencoders (VAEs), and transformers. GANs, originally developed for image synthesis, are adapted to video by enabling seamless frame generation, where a generator produces frames and a discriminator refines their realism. Diffusion models, specifically Denoising Diffusion Probabilistic Models (DDPMs), are pivotal in this field; they convert Gaussian noise into data representations through repeated denoising steps.
 # """)
+    st.session_state.clear()
     st.image(f"{assets_path}/images/home1.png")
     container = st.container(border=True)
 

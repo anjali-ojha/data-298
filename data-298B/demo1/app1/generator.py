@@ -17,6 +17,10 @@ def app(clear=True):
         # video_length_s = st.sidebar.slider("Video Length in Sec", 1, 30, 5, 1, key="video_length_s")
         # print(f"{video_height = }, {video_width = }, {video_length_s = }")
         st.divider()
+        if st.button("Reset Session"):
+            st.session_state.clear()
+            print("After reset session = ", st.session_state)
+
         # chat_name = st.selectbox("Chat Session:", ["default", "chat1"], key="chat_name", on_change=on_chat_change)
         # chat_box.use_chat_name(chat_name)
 
@@ -29,9 +33,10 @@ def app(clear=True):
 
         btns = st.container()
 
+
     if "textarea1" not in st.session_state:
-        st.session_state["textarea1"] = "Input Prompt ..."
-    textarea_value = ui.textarea(default_value="Input Prompt ..", placeholder="Enter longer text", key="textarea1")
+        st.session_state["textarea1"] = ""
+    textarea_value = ui.textarea(default_value="", placeholder="Enter Video description ...", key="textarea1")
     # if "textarea1" not in st.session_state:
     #     textarea_value = ui.textarea(default_value="Input Prompt ..", placeholder="Enter longer text", key="textarea1")
     # else:
@@ -74,6 +79,7 @@ def app(clear=True):
             width = col2.slider("Video Height", 300, 800, 400, 50, key="v_width", on_change=slider_change("v_width"))
             length_s = col3.slider("Video Length in Sec", 1, 30, 5, 1, key="v_length_s", on_change=slider_change("v_length_s"))
 
+            model = st.selectbox("Choose Model", ("CogVideo", "Tune-A-Video"))
             config_button = st.form_submit_button("Submit", on_click=test)
 
         if "my_form" in st.session_state:
@@ -89,14 +95,14 @@ def app(clear=True):
         st.text("Video Parameters updated.")
         ui.badges(badge_list=[(f"Video Height = {st.session_state['v_height']}", "default"),
                               (f"Video Width = {st.session_state['v_width']}", "secondary"),
-                              # ("outline", "outline"),
+                              (f"Model = {model}", "model"),
                               # ("Hello", "destructive"),
-                              (f"Video Length {st.session_state['v_length_s']}", "destructive")
+                              (f"Video Length {st.session_state['v_length_s']} second", "destructive")
                               ], class_name="flex gap-2", key="badges1")
 
         video_container = st.container(border=True)
         col1, col2 = video_container.columns([1,2])
-        col1.caption(f"Generating the video {textarea_value}")
+        col1.caption(f"Generating the video for prompt = \n {textarea_value}")
         # st.image(f'{assets_path}/images/logo_new.png')
         import time
         progress_bar = col2.progress(0)
@@ -107,8 +113,19 @@ def app(clear=True):
             # Simulate a delay (for example, some data processing)
             time.sleep(0.1)
 
-        col2.video(f"{assets_path}/sample/video3.mp4")
+        video_path = get_video(height, width, length_s, model)
+        col2.video(video_path)
         # st.caption
+
+def get_video(height, width, length, model):
+    print(f"{model = }, {height = }, {width = }, {length = }")
+    if model == "CogVideo":
+        print(f"Calling CogVideo")
+
+    elif model == "Tune-A-Video":
+        print(f"Calling Tune-A-Video")
+
+    return f"{assets_path}/sample/video3.mp4"
 
 def app2(clear=True):
     status = False if 'video_height' in st.session_state else True
