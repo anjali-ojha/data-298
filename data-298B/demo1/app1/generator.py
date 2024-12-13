@@ -79,7 +79,7 @@ def app(clear=True):
             width = col2.slider("Video Height", 300, 800, 400, 50, key="v_width", on_change=slider_change("v_width"))
             length_s = col3.slider("Video Length in Sec", 1, 30, 5, 1, key="v_length_s", on_change=slider_change("v_length_s"))
 
-            model = st.selectbox("Choose Model", ("CogVideo", "Tune-A-Video"))
+            model = st.selectbox("Choose Model", ("CogVideo", "HiGen", "LaVit", "Tune-A-Video"))
             config_button = st.form_submit_button("Submit", on_click=test)
 
         if "my_form" in st.session_state:
@@ -125,7 +125,7 @@ def get_video(height, width, length, model):
     elif model == "Tune-A-Video":
         print(f"Calling Tune-A-Video")
 
-    return f"{assets_path}/sample/video3.mp4"
+    return f"{assets_path}/sample/nike.mp4"
 
 def app2(clear=True):
     status = False if 'video_height' in st.session_state else True
